@@ -32,7 +32,7 @@ export function ContactConsentStep({
             type="text"
             value={contact.firstName ?? ""}
             onChange={(e) => onContactChange({ ...contact, firstName: e.target.value })}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
           />
         </div>
         <div>
@@ -44,7 +44,7 @@ export function ContactConsentStep({
             type="text"
             value={contact.lastName ?? ""}
             onChange={(e) => onContactChange({ ...contact, lastName: e.target.value })}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
           />
         </div>
       </div>
@@ -58,7 +58,7 @@ export function ContactConsentStep({
           type="email"
           value={contact.email ?? ""}
           onChange={(e) => onContactChange({ ...contact, email: e.target.value })}
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
         />
         <p className="mt-1 text-xs text-slate-400">Aici vei primi raportul, în maxim 24 de ore.</p>
       </div>
@@ -79,7 +79,7 @@ export function ContactConsentStep({
             value={phoneLocalPart}
             onChange={(e) => onPhoneLocalPartChange(e.target.value.replace(/\D/g, "").slice(0, 8))}
             placeholder="XXXXXXXX"
-            className="w-full rounded-r-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+            className="w-full rounded-r-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
           />
         </div>
       </div>

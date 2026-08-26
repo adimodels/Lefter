@@ -1,48 +1,58 @@
-import { Compass, Star, Brain, HeartPulse, Users, Sparkles, Target, BookOpen, Globe } from "lucide-react";
-import { Section, SectionHeading } from "@/components/ui/Section";
+import { ShieldCheck, Lock, Check } from "lucide-react";
 
-const INSTRUMENTS = [
-  { icon: Compass, name: "Orientare Vocațională", source: "Holland RIASEC Model" },
-  { icon: Star, name: "Forțe de Caracter", source: "VIA Character Strengths Survey" },
-  { icon: Brain, name: "Inteligența Emoțională", source: "Goleman EQ Framework" },
-  { icon: HeartPulse, name: "Stare de Bine", source: "WHO-5 Wellbeing Index (OMS)" },
-  { icon: Users, name: "Stiluri Parentale", source: "Baumrind Parenting Styles" },
-  { icon: Sparkles, name: "Mindset de Creștere", source: "Dweck Growth Mindset Scale" },
-  { icon: Target, name: "Autoeficacitate", source: "Bandura Self-Efficacy Scale" },
-  { icon: BookOpen, name: "Stil de Învățare", source: "VARK Learning Styles" },
-  { icon: Globe, name: "Sens & Scop", source: "Ikigai Framework" },
+const INSTRUMENTS = ["Holland", "WHO-5", "Goleman", "VIA", "Baumrind", "Gottman"];
+
+const SECURITY = [
+  "Datele tale sunt criptate și stocate în siguranță",
+  "Nu vom vinde niciodată datele tale",
+  "Poți solicita ștergerea datelor oricând",
+  "Respectăm GDPR și legislația din Moldova",
 ];
 
 export function Methodology() {
   return (
-    <Section className="bg-white">
-      <SectionHeading
-        eyebrow="Metodologie"
-        title="Construit pe știință, nu pe intuiție"
-        subtitle="Testul e construit pe 11 instrumente validate internațional de psihologie, educație și wellbeing, utilizate de universități, clinici și organizații globale."
-      />
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {INSTRUMENTS.map((instrument) => (
-          <div
-            key={instrument.name}
-            className="rounded-2xl border border-slate-200 p-5 text-center flex flex-col items-center"
-          >
-            <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-amber-600">
-              <instrument.icon className="h-6 w-6" strokeWidth={1.75} />
-            </div>
-            <p className="text-sm font-bold text-slate-900">{instrument.name}</p>
-            <p className="mt-1 text-xs text-slate-500">{instrument.source}</p>
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="grid gap-6 lg:grid-cols-2">
+        <article className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-900/5">
+          <h2 className="text-lg font-bold text-ink">Bazat pe instrumente validate internațional</h2>
+          <p className="mt-4 text-[12.5px] leading-relaxed text-slate-600">
+            Testele sunt construite pe 11 framework-uri validate internațional de psihologie,
+            educație și wellbeing, utilizate de instituții academice și organizații internaționale.
+          </p>
+          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+            {INSTRUMENTS.map((name) => (
+              <span key={name} className="text-[12px] font-bold text-slate-500">
+                {name}
+              </span>
+            ))}
+            <span className="text-[11px] text-slate-400">și altele</span>
           </div>
-        ))}
-      </div>
+        </article>
 
-      <div className="mt-12 mx-auto max-w-2xl rounded-2xl bg-amber-50 border border-amber-200 p-6 text-center">
-        <p className="font-semibold text-slate-900">
-          Dacă ai face aceste evaluări separat cu un specialist, costul total ar fi{" "}
-          <span className="text-amber-700">500–800€</span>. Tu le primești pe toate, combinate
-          într-un singur raport personalizat. Gratuit.
-        </p>
+        <article className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-50 to-violet-50 p-7 ring-1 ring-slate-900/5">
+          <div className="relative z-10 max-w-md">
+            <div className="flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-violet">
+                <ShieldCheck className="h-5 w-5 text-white" strokeWidth={1.8} />
+              </span>
+              <h2 className="text-lg font-bold text-brand">Siguranță și confidențialitate</h2>
+            </div>
+            <ul className="mt-6 space-y-3">
+              {SECURITY.map((item) => (
+                <li key={item} className="flex gap-2.5 text-[12.5px] text-slate-700">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={2.5} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <Lock
+            aria-hidden
+            className="pointer-events-none absolute -bottom-4 right-4 h-40 w-40 text-brand/10"
+            strokeWidth={1}
+          />
+        </article>
       </div>
-    </Section>
+    </section>
   );
 }

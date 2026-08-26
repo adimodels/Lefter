@@ -34,7 +34,7 @@ export function PairChoiceGroup({
                     aria-pressed={selected}
                     className={`rounded-xl border p-4 text-left transition-colors ${
                       selected
-                        ? "border-amber-500 bg-amber-50 ring-1 ring-amber-500"
+                        ? "border-brand bg-indigo-50 ring-1 ring-brand"
                         : "border-slate-200 bg-white hover:border-slate-300"
                     }`}
                   >

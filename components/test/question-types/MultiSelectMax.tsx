@@ -38,7 +38,7 @@ export function MultiSelectMax({
               aria-pressed={isSelected}
               className={`w-full flex items-center gap-4 rounded-xl border p-4 text-left transition-colors ${
                 isSelected
-                  ? "border-amber-500 bg-amber-50 ring-1 ring-amber-500"
+                  ? "border-brand bg-indigo-50 ring-1 ring-brand"
                   : disabled
                     ? "border-slate-100 bg-slate-50 text-slate-400 cursor-not-allowed"
                     : "border-slate-200 bg-white hover:border-slate-300"
@@ -46,11 +46,11 @@ export function MultiSelectMax({
             >
               <span
                 className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md border-2 ${
-                  isSelected ? "border-amber-500 bg-amber-500" : "border-slate-300 bg-white"
+                  isSelected ? "border-brand bg-brand" : "border-slate-300 bg-white"
                 }`}
               >
                 {isSelected && (
-                  <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-slate-900">
+                  <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-white">
                     <path
                       fillRule="evenodd"
                       d="M16.7 5.3a1 1 0 010 1.4l-7.4 7.4a1 1 0 01-1.4 0L3.3 9.5a1 1 0 111.4-1.4l3.6 3.6 6.7-6.7a1 1 0 011.4 0z"

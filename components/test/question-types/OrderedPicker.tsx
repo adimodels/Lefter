@@ -59,7 +59,7 @@ export function OrderedPicker({
               aria-pressed={isRanked}
               className={`w-full flex items-center gap-4 rounded-xl border p-4 text-left transition-colors ${
                 isRanked
-                  ? "border-amber-500 bg-amber-50 ring-1 ring-amber-500"
+                  ? "border-brand bg-indigo-50 ring-1 ring-brand"
                   : disabled
                     ? "border-slate-100 bg-slate-50 text-slate-400 cursor-not-allowed"
                     : "border-slate-200 bg-white hover:border-slate-300"
@@ -67,7 +67,7 @@ export function OrderedPicker({
             >
               <span
                 className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
-                  isRanked ? "bg-amber-500 text-slate-900" : "bg-slate-100 text-slate-400"
+                  isRanked ? "bg-brand text-white" : "bg-slate-100 text-slate-400"
                 }`}
               >
                 {isRanked ? rank + 1 : ""}

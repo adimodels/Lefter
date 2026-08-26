@@ -25,7 +25,7 @@ export function ScaleSlider({
         step={1}
         value={displayValue}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full accent-amber-500"
+        className="w-full accent-brand"
       />
       <div className="mt-2 flex justify-between text-xs text-slate-400">
         {marks.map((mark) => (
@@ -37,7 +37,7 @@ export function ScaleSlider({
         <span className="max-w-[45%] text-right">{question.maxLabel}</span>
       </div>
       {!hasValue && (
-        <p className="mt-4 text-sm text-amber-600">
+        <p className="mt-4 text-sm text-brand">
           Mișcă cursorul pentru a înregistra un răspuns.
         </p>
       )}

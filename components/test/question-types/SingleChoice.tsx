@@ -21,13 +21,13 @@ export function SingleChoice({
             aria-pressed={selected}
             className={`w-full flex items-start gap-4 rounded-xl border p-4 text-left transition-colors ${
               selected
-                ? "border-amber-500 bg-amber-50 ring-1 ring-amber-500"
+                ? "border-brand bg-indigo-50 ring-1 ring-brand"
                 : "border-slate-200 bg-white hover:border-slate-300"
             }`}
           >
             <span
               className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
-                selected ? "bg-amber-500 text-slate-900" : "bg-slate-100 text-slate-500"
+                selected ? "bg-brand text-white" : "bg-slate-100 text-slate-500"
               }`}
             >
               {option.value}

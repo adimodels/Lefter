@@ -183,7 +183,7 @@ export function TestWizard({
       {phase === "intro" && (
         <div className="text-center">
           <h1 className="text-3xl font-bold text-slate-900">{title}</h1>
-          <p className="mt-2 text-sm font-medium text-amber-600">Durată estimată: {duration}</p>
+          <p className="mt-2 text-sm font-medium text-brand">Durată estimată: {duration}</p>
           <p className="mt-6 text-slate-600 leading-relaxed max-w-xl mx-auto">{instructions}</p>
           <div className="mt-10">
             <Button size="lg" onClick={() => setPhase("demographics")}>

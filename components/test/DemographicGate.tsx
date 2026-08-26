@@ -39,7 +39,7 @@ export function DemographicGate({
             onChange({ ...value, age: e.target.value === "" ? undefined : Number(e.target.value) })
           }
           placeholder={`${MIN_AGE}–${MAX_AGE}`}
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
         />
       </div>
 
@@ -54,7 +54,7 @@ export function DemographicGate({
               aria-pressed={value.gender === option.value}
               className={`rounded-xl border p-3 text-sm font-medium transition-colors ${
                 value.gender === option.value
-                  ? "border-amber-500 bg-amber-50 text-slate-900 ring-1 ring-amber-500"
+                  ? "border-brand bg-indigo-50 text-slate-900 ring-1 ring-brand"
                   : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
               }`}
             >
@@ -75,7 +75,7 @@ export function DemographicGate({
               aria-pressed={value.livingArea === option.value}
               className={`rounded-xl border p-3 text-sm font-medium transition-colors ${
                 value.livingArea === option.value
-                  ? "border-amber-500 bg-amber-50 text-slate-900 ring-1 ring-amber-500"
+                  ? "border-brand bg-indigo-50 text-slate-900 ring-1 ring-brand"
                   : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
               }`}
             >
@@ -93,7 +93,7 @@ export function DemographicGate({
           id="county"
           value={value.county ?? ""}
           onChange={(e) => onChange({ ...value, county: e.target.value || undefined })}
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
         >
           <option value="">Alege...</option>
           {MOLDOVA_DISTRICTS.map((district) => (

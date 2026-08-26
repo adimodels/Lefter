@@ -49,7 +49,7 @@ export function WaitlistForm({ audience }: { audience: Audience }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="emailul@tau.md"
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
         />
         <Button type="submit" disabled={status === "submitting"}>
           Trimite

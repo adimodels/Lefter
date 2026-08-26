@@ -24,7 +24,7 @@ export function ConsentCheckbox({
         checked={checked}
         required={required}
         onChange={(e) => onChange(e.target.checked)}
-        className="mt-1 h-5 w-5 shrink-0 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+        className="mt-1 h-5 w-5 shrink-0 rounded border-slate-300 text-brand focus:ring-brand"
       />
       <span className="text-sm leading-relaxed text-slate-700">{children}</span>
     </label>

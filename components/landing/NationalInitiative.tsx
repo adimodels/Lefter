@@ -1,42 +1,53 @@
-import { Section, SectionHeading } from "@/components/ui/Section";
+import { Compass, HeartPulse, Users, GraduationCap, TrendingUp, ShieldCheck } from "lucide-react";
+import { MoldovaDotMap } from "./MoldovaDotMap";
 
 const STATS = [
-  "Distribuția intereselor vocaționale (ce domenii atrag tinerii moldoveni)",
-  "Nivelul mediu de wellbeing (starea de bine a tinerilor pe regiuni)",
-  "Stilurile parentale dominante în Moldova",
-  "Principalele lipsuri identificate în educația practică",
-  "Tendințe an de an (din 2026 în continuare)",
+  { icon: Compass, title: "Interese vocaționale", sub: "Ce domenii atrag tinerii moldoveni" },
+  { icon: HeartPulse, title: "Wellbeing", sub: "Nivelul mediu de stare de bine pe regiuni" },
+  { icon: Users, title: "Stiluri parentale", sub: "Stilurile dominante în Moldova" },
+  { icon: GraduationCap, title: "Lipsuri în educație", sub: "Principalele lipsuri identificate" },
+  { icon: TrendingUp, title: "Tendințe anuale", sub: "Evoluția de la an la an (din 2026)" },
 ];
 
 export function NationalInitiative() {
   return (
-    <Section className="bg-slate-50">
-      <SectionHeading eyebrow="Inițiativa Națională" title="De ce o facem" />
-      <p className="max-w-3xl mx-auto text-center text-lg text-slate-600 leading-relaxed">
-        Moldova nu a avut niciodată o imagine clară a propriei generații. Adi Academy lansează{" "}
-        <strong className="text-slate-900">
-          Raportul Național de Autoevaluare și Dezvoltare Personală
-        </strong>{" "}
-        — prima inițiativă de acest fel din Republica Moldova. Fiecare test completat contribuie,
-        anonim, la construirea celui mai complet portret al tinerilor și părinților din Moldova —
-        publicat anual ca statistică națională.
-      </p>
+    <section id="statistici" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden rounded-3xl bg-ink px-7 py-12 sm:px-12">
+        <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/2 opacity-70 lg:block">
+          <MoldovaDotMap className="ml-auto h-full w-auto" />
+        </div>
+        <div className="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />
 
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 max-w-2xl mx-auto">
-        {STATS.map((stat) => (
-          <div key={stat} className="flex items-start gap-3">
-            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
-            <span className="text-slate-700 text-sm leading-relaxed">{stat}</span>
-          </div>
-        ))}
-      </div>
+        <div className="relative max-w-2xl">
+          <h2 className="text-2xl font-bold leading-snug text-white sm:text-[1.7rem]">
+            Construim împreună
+            <br />
+            portretul național al tinerilor și părinților din Moldova
+          </h2>
+          <p className="mt-4 max-w-xl text-[13px] leading-relaxed text-slate-300">
+            Fiecare test completat contribuie, anonim, la cea mai completă statistică națională
+            anuală, publicată de Adi Academy. Datele tale rămân private.
+          </p>
+        </div>
 
-      <div className="mt-12 mx-auto max-w-2xl rounded-2xl bg-slate-900 text-white p-6 text-center">
-        <p className="font-medium">
-          Datele personale rămân private. Ce rămâne în statistică e un număr dintr-un tablou
-          național — fără nume, fără identificare.
-        </p>
+        <dl className="relative mt-12 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
+          {STATS.map((stat) => (
+            <div key={stat.title}>
+              <stat.icon className="h-6 w-6 text-violet-soft" strokeWidth={1.6} />
+              <dt className="mt-3 text-[12px] font-bold text-white">{stat.title}</dt>
+              <dd className="mt-1 text-[10px] leading-snug text-slate-400">{stat.sub}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <div className="relative mt-10 flex max-w-3xl items-start gap-3 rounded-xl bg-white/[0.07] px-5 py-4 ring-1 ring-white/10">
+          <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-violet-soft" strokeWidth={1.7} />
+          <p className="text-[12px] leading-relaxed text-slate-200">
+            Datele personale rămân private. Ce rămâne în statistică e un număr dintr-un tablou
+            național — fără nume, fără identificare.
+          </p>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

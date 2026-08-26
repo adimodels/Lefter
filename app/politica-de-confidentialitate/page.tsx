@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
             Operatorul de date cu caracter personal este <strong>{LEGAL_INFO.operatorName}</strong>{" "}
             ({SITE_NAME}), în calitate de organizator al Programului Național de Autoevaluare și
             Dezvoltare Personală. Pentru orice întrebare legată de datele tale, ne poți scrie la{" "}
-            <a href={`mailto:${CONTACT_INFO.email}`} className="text-amber-600 underline">
+            <a href={`mailto:${CONTACT_INFO.email}`} className="text-brand underline">
               {CONTACT_INFO.email}
             </a>
             .
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
             Ai dreptul de acces, rectificare, ștergere și opoziție cu privire la datele tale cu
             caracter personal, conform Legii nr. 133/2011 privind protecția datelor cu caracter
             personal. Pentru a solicita ștergerea datelor tale, scrie-ne la{" "}
-            <a href={`mailto:${CONTACT_INFO.email}`} className="text-amber-600 underline">
+            <a href={`mailto:${CONTACT_INFO.email}`} className="text-brand underline">
               {CONTACT_INFO.email}
             </a>
             . Vei primi o confirmare, iar datele vor fi șterse în maximum{" "}

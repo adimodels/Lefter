@@ -17,7 +17,7 @@ export default function ContactPage() {
       <div className="mt-10 space-y-4">
         <a
           href={`mailto:${CONTACT_INFO.email}`}
-          className="block text-lg font-semibold text-amber-600 hover:text-amber-700"
+          className="block text-lg font-semibold text-brand hover:text-brand-dark"
         >
           {CONTACT_INFO.email}
         </a>

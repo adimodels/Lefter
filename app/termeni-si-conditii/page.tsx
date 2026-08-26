@@ -60,7 +60,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-bold text-slate-900 mb-2">6. Contact</h2>
           <p>
             Pentru orice întrebare legată de acești termeni, ne poți scrie la{" "}
-            <a href={`mailto:${CONTACT_INFO.email}`} className="text-amber-600 underline">
+            <a href={`mailto:${CONTACT_INFO.email}`} className="text-brand underline">
               {CONTACT_INFO.email}
             </a>
             .

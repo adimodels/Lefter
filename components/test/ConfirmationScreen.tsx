@@ -4,8 +4,8 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 export function ConfirmationScreen({ firstName, email }: { firstName: string; email: string }) {
   return (
     <div className="text-center py-12">
-      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
-        <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8 text-amber-600">
+      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-100">
+        <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8 text-brand">
           <path
             d="M5 13l4 4L19 7"
             stroke="currentColor"

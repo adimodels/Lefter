@@ -23,7 +23,7 @@ export default function AdminLoginPage() {
           type="password"
           required
           autoFocus
-          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+          className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
         />
 
         {state?.error && <p className="mt-3 text-sm text-red-600">{state.error}</p>}
@@ -31,7 +31,7 @@ export default function AdminLoginPage() {
         <button
           type="submit"
           disabled={pending}
-          className="mt-6 w-full rounded-full bg-amber-500 px-5 py-3 font-semibold text-slate-900 hover:bg-amber-400 disabled:opacity-50"
+          className="mt-6 w-full rounded-full bg-brand px-5 py-3 font-semibold text-slate-900 hover:bg-brand-dark disabled:opacity-50"
         >
           {pending ? "Se verifică..." : "Intră"}
         </button>
