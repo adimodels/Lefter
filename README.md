@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Adi Academy — Landing Page & Test de Autoevaluare
 
-## Getting Started
+Landing page și sistem de test online pentru Programul Național de
+Autoevaluare și Dezvoltare Personală (Adi Academy, Moldova).
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind CSS v4
+- MongoDB + Prisma (`^6`)
+- Zod pentru validare
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configurare locală
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Copiază `.env.example` în `.env` și completează valorile (minim
+   `DATABASE_URL`, `ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`).
+2. Instalează dependențele și generează clientul Prisma + sincronizează
+   schema cu baza de date:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   npm install
+   npx prisma db push
+   ```
 
-## Learn More
+3. Pornește serverul de dezvoltare:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   Deschide [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Structură
 
-## Deploy on Vercel
+- `app/page.tsx` — landing page
+- `app/test/tineri`, `app/test/parinti` — cele două teste (wizard client-side)
+- `app/api/submit`, `app/api/capacity`, `app/api/waitlist` — API-uri publice
+- `app/admin` — panou intern (parolă comună din `ADMIN_PASSWORD`)
+- `lib/questions/{youth,parent}.ts` — conținutul integral al celor două teste
+- `prisma/schema.prisma` — schema MongoDB (colecții separate pentru date
+  anonimizate vs. date de contact, conform Legii nr. 133/2011)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Integrări opționale
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Telegram (`TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`) și Google Sheets
+(`SHEETS_WEBHOOK_URL`) sunt apelate direct din `/api/submit` la fiecare
+submission reușit. Dacă variabilele lipsesc, integrarea respectivă e pur și
+simplu ignorată (nu blochează trimiterea testului).

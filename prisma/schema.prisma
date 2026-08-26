@@ -1,0 +1,87 @@
+// Adi Academy — schema de date
+//
+// Separare intenționată în două colecții pentru conformitate cu Legea
+// nr. 133/2011: `Submission` conține doar date anonimizate (folosite pentru
+// statistica națională), `Contact` conține datele de identificare (PII).
+// Legătura dintre ele e strict `submissionId` (o valoare oarbă, generată o
+// singură dată la submit) — nu o relație Prisma populabilă dintr-o parte în
+// alta, ca să nu poată fi "join-uite" din greșeală într-un export anonimizat.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Audience {
+  YOUTH
+  PARENT
+}
+
+enum ReportStatus {
+  NOT_PROCESSED
+  IN_PROGRESS
+  SENT
+}
+
+enum LivingArea {
+  URBAN
+  RURAL
+  SMALL_TOWN
+}
+
+model Submission {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  submissionId String     @unique
+  audience     Audience
+  age          Int
+  gender       String
+  livingArea   LivingArea
+  county       String?
+  /// Toate răspunsurile brute la întrebările testului (fără PII).
+  answers      Json
+  createdAt    DateTime   @default(now())
+
+  @@map("submissions")
+}
+
+model Contact {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  submissionId String       @unique
+  audience     Audience
+  firstName    String
+  lastName     String
+  email        String
+  phone        String
+
+  consentDataProcessingAt DateTime
+  consentStatisticsAt     DateTime
+  marketingOptInAt        DateTime?
+  parentalConsentAt       DateTime?
+
+  reportStatus ReportStatus @default(NOT_PROCESSED)
+  createdAt    DateTime     @default(now())
+
+  @@map("contacts")
+}
+
+/// Document singleton (`id: "main"`) folosit pentru a număra atomic
+/// submisiile valide, pentru pragul celor 5.000 de rapoarte gratuite.
+model Counter {
+  id    String @id @map("_id")
+  count Int    @default(0)
+
+  @@map("counters")
+}
+
+model WaitlistEntry {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String
+  audience  Audience
+  createdAt DateTime @default(now())
+
+  @@map("waitlist_entries")
+}
