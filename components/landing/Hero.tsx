@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Gift, Clock, ShieldCheck } from "lucide-react";
-import { HeroVisual } from "./HeroVisual";
 import { MoldovaFlag } from "./MoldovaFlag";
 
 const TRUST = [
@@ -80,7 +80,16 @@ export function Hero() {
           </div>
         </div>
 
-        <HeroVisual />
+        {/* Imaginea include deja cardul „AI Report Personalizat" și grafica de fundal. */}
+        <Image
+          src="/hero-tineri.png"
+          alt="Doi tineri cu raportul personalizat generat de AI, oferit de Adi Academy"
+          width={1437}
+          height={1094}
+          priority
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="mx-auto h-auto w-full max-w-[620px]"
+        />
       </div>
     </section>
   );
