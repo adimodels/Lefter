@@ -1,9 +1,9 @@
-import { ArrowRight, Check, Sparkles, MessageCircle, Briefcase } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
+import { ModellingBadge, CommunicationBadge, EntrepreneurshipBadge } from "./ProgramIcons";
 
 const PROGRAMS = [
   {
-    icon: Sparkles,
-    accent: "bg-brand",
+    Badge: ModellingBadge,
     title: "Modelling &\nDezvoltare Personală",
     points: [
       "Prezență scenică, imagine, actorie, public speaking",
@@ -14,8 +14,7 @@ const PROGRAMS = [
     tagColor: "text-brand",
   },
   {
-    icon: MessageCircle,
-    accent: "bg-violet",
+    Badge: CommunicationBadge,
     title: "Comunicare\nși Imagine",
     points: [
       "Public speaking, voce & dicție, prezență media",
@@ -26,8 +25,7 @@ const PROGRAMS = [
     tagColor: "text-violet",
   },
   {
-    icon: Briefcase,
-    accent: "bg-emerald-600",
+    Badge: EntrepreneurshipBadge,
     title: "Antreprenoriat\nși Bani",
     points: [
       "Antreprenoriat, educație financiară, leadership",
@@ -82,11 +80,7 @@ export function AboutAcademy() {
               key={program.title}
               className="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-900/5"
             >
-              <span
-                className={`flex h-11 w-11 items-center justify-center rounded-xl ${program.accent}`}
-              >
-                <program.icon className="h-5 w-5 text-white" strokeWidth={1.8} />
-              </span>
+              <program.Badge />
               <h3 className="mt-5 whitespace-pre-line text-[15px] font-bold leading-snug text-ink">
                 {program.title}
               </h3>

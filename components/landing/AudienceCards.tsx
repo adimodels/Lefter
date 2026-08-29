@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Check, User, Users } from "lucide-react";
 
 const CARDS = [
@@ -11,6 +12,10 @@ const CARDS = [
     accent: "bg-brand",
     panel: "from-brand to-violet",
     button: "bg-brand hover:bg-brand-dark",
+    asset: "/tineri-asset.png",
+    assetAlt: "Tânăr cu rucsac și laptop",
+    assetWidth: 1165,
+    assetHeight: 1350,
     points: [
       "39 de întrebări",
       "8 categorii de dezvoltare",
@@ -27,6 +32,10 @@ const CARDS = [
     accent: "bg-violet",
     panel: "from-violet to-violet-soft",
     button: "bg-violet hover:bg-violet/90",
+    asset: "/parinti-asset.png",
+    assetAlt: "Mamă îmbrățișându-și copilul",
+    assetWidth: 1180,
+    assetHeight: 1333,
     points: [
       "32 de întrebări + profil copil",
       "6 categorii de dezvoltare",
@@ -38,29 +47,29 @@ const CARDS = [
 
 export function AudienceCards() {
   return (
-    <section className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 pt-10 pb-4 sm:pt-14 sm:px-6 lg:px-8">
       <div className="grid gap-6 lg:grid-cols-2">
         {CARDS.map((card) => (
           <article
             key={card.href}
             className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${card.surface} ring-1 ring-slate-900/5`}
           >
-            {/* Panoul decorativ ține locul fotografiei din machetă. */}
             <div
               aria-hidden
-              className={`absolute inset-y-0 right-0 hidden w-[34%] overflow-hidden bg-gradient-to-br ${card.panel} sm:block`}
+              className={`absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden bg-gradient-to-br ${card.panel} sm:block`}
               style={{ borderRadius: "45% 0 0 45% / 50% 0 0 50%" }}
             >
-              <span className="absolute -right-8 top-6 h-32 w-32 rounded-full border border-white/25" />
-              <span className="absolute -right-2 bottom-4 h-24 w-24 rounded-full border border-white/20" />
-              <span className="absolute right-10 top-1/2 h-16 w-16 -translate-y-1/2 rounded-2xl bg-white/15 ring-1 ring-white/25" />
-              <card.icon
-                className="absolute right-[3.4rem] top-1/2 h-8 w-8 -translate-y-1/2 text-white"
-                strokeWidth={1.6}
+              <Image
+                src={card.asset}
+                alt={card.assetAlt}
+                width={card.assetWidth}
+                height={card.assetHeight}
+                sizes="(max-width: 1024px) 30vw, 20vw"
+                className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
               />
             </div>
 
-            <div className="relative z-10 p-7 sm:max-w-[68%]">
+            <div className="relative z-10 p-7 sm:max-w-[62%]">
               <div className="flex items-start gap-4">
                 <span
                   className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${card.accent}`}
@@ -88,7 +97,6 @@ export function AudienceCards() {
                 {card.cta} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-
           </article>
         ))}
       </div>

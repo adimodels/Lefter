@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Gift, Clock, ShieldCheck } from "lucide-react";
-import { MoldovaFlag } from "./MoldovaFlag";
 
 const TRUST = [
   { icon: Gift, title: "100% Gratuit", sub: "Primele 5.000 de rapoarte" },
@@ -9,74 +8,71 @@ const TRUST = [
   { icon: ShieldCheck, title: "Confidențial & Sigur", sub: "Datele tale sunt protejate" },
 ];
 
+// Umbră de text mai puternică decât utilitarele standard `drop-shadow-*` ale
+// Tailwind — necesară fiindcă fotografia de fundal are zone foarte deschise
+// (apusul) fără niciun voal peste ea.
+const TEXT_SHADOW = "drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]";
+
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-indigo-50/40 to-white">
-      <div className="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-brand/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-violet/10 blur-3xl" />
+    <section className="relative isolate h-[50vh] min-h-[560px] overflow-hidden bg-ink">
+      {/* Fotografie panoramică (~2.5:1) — la lățime completă, object-cover
+          decupează foarte puțin din cadru, deci nu mai e nevoie de trucul
+          cu blur/letterbox folosit pentru versiunea anterioară, mai îngustă. */}
+      <Image
+        src="/hero-bg.png"
+        alt=""
+        aria-hidden
+        fill
+        priority
+        unoptimized
+        sizes="100vw"
+        className="-z-20 object-cover object-center"
+      />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:px-8 lg:py-20">
+      <div className="absolute inset-0 mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:px-8">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-md bg-brand/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-brand">
-            Inițiativă Națională Gratuită
-            <MoldovaFlag className="h-3 w-[18px] rounded-[2px]" />
-          </span>
-
-          <h1 className="mt-6 text-[2.1rem] font-extrabold leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[2.9rem] xl:text-[3.25rem]">
+          <h1
+            className={`text-[1.9rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-[2.6rem] xl:text-[2.9rem] ${TEXT_SHADOW}`}
+          >
             Descoperă cine ești.
             <br />
-            <span className="text-brand">Construiește-ți viitorul.</span>
+            <span className="text-sky-300">Construiește-ți viitorul.</span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-slate-600">
+          <p
+            className={`mt-4 max-w-lg text-[13.5px] leading-relaxed text-white sm:text-[15px] ${TEXT_SHADOW}`}
+          >
             Completează testul de autoevaluare și primește în 24 de ore un raport personalizat
             generat de AI — cu talente, recomandări de cărți, obiceiuri, cursuri și direcții de
             dezvoltare.
           </p>
 
-          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+          <dl className="mt-5 hidden flex-wrap gap-x-8 gap-y-3 sm:flex">
             {TRUST.map((item) => (
-              <div key={item.title} className="flex items-start gap-2.5">
-                <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-brand" strokeWidth={1.7} />
+              <div key={item.title} className={`flex items-start gap-2.5 ${TEXT_SHADOW}`}>
+                <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-sky-300" strokeWidth={1.7} />
                 <div>
-                  <dt className="text-[13px] font-bold text-ink">{item.title}</dt>
-                  <dd className="text-[11px] leading-tight text-slate-500">{item.sub}</dd>
+                  <dt className="text-[13px] font-bold text-white">{item.title}</dt>
+                  <dd className="text-[11px] leading-tight text-white/90">{item.sub}</dd>
                 </div>
               </div>
             ))}
           </dl>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/test/tineri"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand to-violet px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand/25 transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand to-violet px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition-opacity hover:opacity-90"
             >
               Începe testul acum <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="#initiativa"
-              className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-slate-50"
+              className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-ink shadow-lg transition-colors hover:bg-slate-100"
             >
               Află mai multe
             </a>
-          </div>
-
-          <div className="mt-9 flex items-center gap-3">
-            <div className="flex -space-x-2">
-              {["from-brand to-violet", "from-violet to-violet-soft", "from-sky-400 to-brand"].map(
-                (g, i) => (
-                  <span
-                    key={i}
-                    className={`h-8 w-8 rounded-full bg-gradient-to-br ${g} ring-2 ring-white`}
-                  />
-                )
-              )}
-            </div>
-            <p className="text-[12px] leading-snug text-slate-500">
-              Alătură-te miilor de tineri și părinți din Moldova
-              <br />
-              care investesc în dezvoltarea personală.
-            </p>
           </div>
         </div>
 
@@ -87,8 +83,9 @@ export function Hero() {
           width={1437}
           height={1094}
           priority
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="mx-auto h-auto w-full max-w-[620px]"
+          quality={100}
+          sizes="(max-width: 1024px) 40vh, 50vw"
+          className="mx-auto hidden h-full w-auto object-contain drop-shadow-2xl lg:block"
         />
       </div>
     </section>

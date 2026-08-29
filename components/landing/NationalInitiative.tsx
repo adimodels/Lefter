@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { Compass, HeartPulse, Users, GraduationCap, TrendingUp, ShieldCheck } from "lucide-react";
-import { MoldovaDotMap } from "./MoldovaDotMap";
 
 const STATS = [
   { icon: Compass, title: "Interese vocaționale", sub: "Ce domenii atrag tinerii moldoveni" },
@@ -13,8 +13,16 @@ export function NationalInitiative() {
   return (
     <section id="statistici" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="relative overflow-hidden rounded-3xl bg-ink px-7 py-12 sm:px-12">
-        <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/2 opacity-70 lg:block">
-          <MoldovaDotMap className="ml-auto h-full w-auto" />
+        <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-1/2 opacity-80 lg:block">
+          <Image
+            src="/moldova-map.png"
+            alt=""
+            aria-hidden
+            fill
+            quality={100}
+            sizes="50vw"
+            className="object-contain object-right"
+          />
         </div>
         <div className="pointer-events-none absolute -left-20 bottom-0 h-72 w-72 rounded-full bg-brand/20 blur-3xl" />
 
