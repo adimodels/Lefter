@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import { ModellingBadge, CommunicationBadge, EntrepreneurshipBadge } from "./ProgramIcons";
 
@@ -63,9 +64,14 @@ export function AboutAcademy() {
           </p>
 
           <div className="mt-8 flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-brand to-violet text-sm font-bold text-white">
-              AL
-            </span>
+            <Image
+              src="/adrian-lefter.png"
+              alt="Adrian Lefter, fondatorul Adi Academy"
+              width={640}
+              height={640}
+              sizes="44px"
+              className="h-11 w-11 rounded-full object-cover ring-2 ring-white"
+            />
             <div>
               <p className="text-[13px] font-bold text-ink">Adrian Lefter</p>
               <p className="text-[11px] text-slate-500">Fondator Adi Academy</p>
