@@ -78,8 +78,13 @@ export default async function AdminSubmissionsPage({
                 <td className="px-4 py-3 whitespace-nowrap text-slate-500">
                   {contact.createdAt.toLocaleString("ro-RO", { timeZone: "Europe/Chisinau" })}
                 </td>
-                <td className="px-4 py-3 whitespace-nowrap font-medium text-slate-900">
-                  {contact.firstName} {contact.lastName}
+                <td className="px-4 py-3 whitespace-nowrap font-medium">
+                  <Link
+                    href={`/admin/submissions/${contact.submissionId}`}
+                    className="text-slate-900 underline decoration-slate-300 underline-offset-2 hover:text-brand hover:decoration-brand"
+                  >
+                    {contact.firstName} {contact.lastName}
+                  </Link>
                 </td>
                 <td className="px-4 py-3 whitespace-nowrap text-slate-600">
                   {contact.audience === "YOUTH" ? "Tânăr" : "Părinte"}
