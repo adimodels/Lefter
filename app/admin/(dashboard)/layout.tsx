@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { logoutAction } from "./actions";
 
@@ -8,7 +9,18 @@ export default function AdminDashboardLayout({ children }: { children: ReactNode
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <span className="font-bold text-slate-900">Adi Academy · Admin</span>
+            <span className="flex items-center gap-2.5 font-bold text-slate-900">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink">
+                <Image
+                  src="/logo.png"
+                  alt="Adi Academy"
+                  width={811}
+                  height={1011}
+                  className="h-6 w-auto"
+                />
+              </span>
+              Adi Academy · Admin
+            </span>
             <nav className="flex items-center gap-4 text-sm font-medium text-slate-600">
               <Link href="/admin" className="hover:text-slate-900">
                 Dashboard

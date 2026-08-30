@@ -28,13 +28,14 @@ export function NationalInitiative() {
 
         <div className="relative max-w-2xl">
           <h2 className="text-2xl font-bold leading-snug text-white sm:text-[1.7rem]">
-            Construim împreună
-            <br />
-            portretul național al tinerilor și părinților din Moldova
+            De ce o facem
           </h2>
           <p className="mt-4 max-w-xl text-[13px] leading-relaxed text-slate-300">
-            Fiecare test completat contribuie, anonim, la cea mai completă statistică națională
-            anuală, publicată de Adi Academy. Datele tale rămân private.
+            Moldova nu a avut niciodată o imagine clară a propriei generații. Adi Academy lansează
+            Raportul Național de Autoevaluare și Dezvoltare Personală — prima inițiativă de acest fel
+            din Republica Moldova. Fiecare test completat contribuie, anonim, la construirea celui
+            mai complet portret al tinerilor și părinților din Moldova — publicat anual ca statistică
+            națională.
           </p>
         </div>
 

@@ -19,8 +19,8 @@ const COLUMNS = [
       { label: "Cum funcționează", href: "/#cum-functioneaza" },
       { label: "Statistici Naționale", href: "/#statistici" },
       { label: "Întrebări frecvente", href: "/#intrebari" },
-      { label: "Termeni și condiții", href: "/termeni-si-conditii" },
-      { label: "Confidențialitate", href: "/politica-de-confidentialitate" },
+      { label: "Termeni și Condiții", href: "/termeni-si-conditii" },
+      { label: "Politica de Confidențialitate", href: "/politica-de-confidentialitate" },
     ],
   },
   {

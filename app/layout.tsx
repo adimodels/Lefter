@@ -13,9 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adi Academy — Descoperă-te. Gratuit. Acum.",
+  title: "Program Național de Dezvoltare și Autoevaluare — Adi Academy",
   description:
-    "Programul Național de Autoevaluare și Dezvoltare Personală Adi Academy — test gratuit pentru tineri și părinți din Moldova, cu raport personalizat în 24 de ore.",
+    "Completează testul de autoevaluare și primești în 24 de ore raportul tău personal — talente, direcție, recomandări concrete. Gratuit, de la Adi Academy.",
+  icons: { icon: "/logo.png", apple: "/logo.png" },
+  openGraph: {
+    title: "Program Național de Dezvoltare și Autoevaluare — Adi Academy",
+    description:
+      "Completează testul de autoevaluare și primești în 24 de ore raportul tău personal — talente, direcție, recomandări concrete.",
+    images: ["/logo.png"],
+    locale: "ro_MD",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

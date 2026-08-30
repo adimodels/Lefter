@@ -46,14 +46,20 @@ export function AboutAcademy() {
             Despre Adi Academy
           </span>
           <h2 className="mt-6 text-2xl font-bold leading-snug text-ink sm:text-[1.7rem]">
-            Creștem o generație
-            <br />
-            de succes ce va mișca Moldova.
+            Cine stă în spatele acestui program
           </h2>
           <p className="mt-5 text-[13px] leading-relaxed text-slate-600">
-            Fondat în 2020 de Adrian Lefter, Adi Academy este un hub educațional care a format peste
-            1.000 de cursanți din Chișinău și din toată Moldova prin programe practice, intensive și
-            axate pe rezultate reale.
+            Adi Academy este un hub educațional fondat de Adrian Lefter în 2020 cu un scop clar: să
+            crească o generație de succes ce va mișca Moldova. De la lansare, Academy a format peste
+            1.000 de cursanți din Chișinău și din toată Moldova.
+          </p>
+          <p className="mt-4 text-[13px] leading-relaxed text-slate-600">
+            Adi Academy este mai mult decât o școală — e un mediu în care tinerii din Moldova
+            descoperă cine sunt și ce pot face. Cursanții noștri astăzi vorbesc în fața publicului,
+            conduc afaceri și se prezintă cu încredere în orice context.
+          </p>
+          <p className="mt-4 text-[13px] font-semibold leading-relaxed text-ink">
+            Misiunea noastră: să creștem o generație de succes ce va mișca Moldova.
           </p>
 
           <div className="mt-8 flex items-center gap-3">

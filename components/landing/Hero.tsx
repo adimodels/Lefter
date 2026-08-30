@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Gift, Clock, ShieldCheck } from "lucide-react";
+import { Gift, Clock, ShieldCheck } from "lucide-react";
+import { AudienceCtaPair } from "./AudienceCtaPair";
 
 const TRUST = [
   { icon: Gift, title: "100% Gratuit", sub: "Primele 5.000 de rapoarte" },
@@ -16,9 +16,19 @@ const TEXT_SHADOW = "drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]";
 export function Hero() {
   return (
     <section className="relative isolate h-[50vh] min-h-[560px] overflow-hidden bg-ink">
-      {/* Fotografie panoramică (~2.5:1) — la lățime completă, object-cover
-          decupează foarte puțin din cadru, deci nu mai e nevoie de trucul
-          cu blur/letterbox folosit pentru versiunea anterioară, mai îngustă. */}
+      {/* Două cadraje ale aceleiași fotografii: panoramic pe desktop, vertical
+          pe telefon — pe ecran îngust, cadrul panoramic ar fi decupat atât de
+          agresiv încât s-ar pierde și apusul, și orașul. */}
+      <Image
+        src="/hero-bg-mobile.png"
+        alt=""
+        aria-hidden
+        fill
+        priority
+        unoptimized
+        sizes="100vw"
+        className="-z-20 object-cover object-center lg:hidden"
+      />
       <Image
         src="/hero-bg.png"
         alt=""
@@ -27,28 +37,33 @@ export function Hero() {
         priority
         unoptimized
         sizes="100vw"
-        className="-z-20 object-cover object-center"
+        className="-z-20 hidden object-cover object-center lg:block"
       />
 
       <div className="absolute inset-0 mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-10 lg:px-8">
         <div>
           <h1
-            className={`text-[1.9rem] font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-[2.6rem] xl:text-[2.9rem] ${TEXT_SHADOW}`}
+            className={`text-[1.7rem] font-extrabold leading-[1.14] tracking-tight text-white sm:text-[2rem] lg:text-[2.2rem] xl:text-[2.5rem] ${TEXT_SHADOW}`}
           >
-            Descoperă cine ești.
+            Program Național de Dezvoltare
             <br />
-            <span className="text-sky-300">Construiește-ți viitorul.</span>
+            și Autoevaluare
           </h1>
 
-          <p
-            className={`mt-4 max-w-lg text-[13.5px] leading-relaxed text-white sm:text-[15px] ${TEXT_SHADOW}`}
-          >
-            Completează testul de autoevaluare și primește în 24 de ore un raport personalizat
-            generat de AI — cu talente, recomandări de cărți, obiceiuri, cursuri și direcții de
-            dezvoltare.
+          {/* Alb, nu bleu: sloganul cade peste zona portocalie a apusului,
+              unde un albastru deschis ar avea contrast prea slab. */}
+          <p className={`mt-3 text-lg font-bold text-white sm:text-xl ${TEXT_SHADOW}`}>
+            Descoperă-te. Gratuit. Acum.
           </p>
 
-          <dl className="mt-5 hidden flex-wrap gap-x-8 gap-y-3 sm:flex">
+          <p
+            className={`mt-5 max-w-xl text-[14px] leading-relaxed text-white sm:text-[15.5px] ${TEXT_SHADOW}`}
+          >
+            Completează testul de autoevaluare și primești în 24 de ore raportul tău personal —
+            talente, direcție, recomandări concrete.
+          </p>
+
+          <dl className="mt-6 hidden flex-wrap gap-x-8 gap-y-3 sm:flex">
             {TRUST.map((item) => (
               <div key={item.title} className={`flex items-start gap-2.5 ${TEXT_SHADOW}`}>
                 <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-sky-300" strokeWidth={1.7} />
@@ -60,20 +75,7 @@ export function Hero() {
             ))}
           </dl>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/test/tineri"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand to-violet px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand/30 transition-opacity hover:opacity-90"
-            >
-              Începe testul acum <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="#initiativa"
-              className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-ink shadow-lg transition-colors hover:bg-slate-100"
-            >
-              Află mai multe
-            </a>
-          </div>
+          <AudienceCtaPair className="mt-7" />
         </div>
 
         {/* Imaginea include deja cardul „AI Report Personalizat" și grafica de fundal. */}
