@@ -146,8 +146,18 @@ export function TestWizard({
   const consentsValid =
     consents.dataProcessing && consents.statistics && (!isMinor || consents.parentalConsent);
 
+  // Cât timp utilizatorul completează, telefonul trăiește separat, ca cele 8
+  // cifre locale; forma completă (+373…) există doar aici. Validarea trebuie
+  // făcută pe contactul recompus — altfel `contact.phone` e mereu gol și
+  // butonul de trimitere rămâne blocat.
+  const fullContact: PartialContact = {
+    ...contact,
+    phone: phoneLocalPart ? `+373${phoneLocalPart}` : undefined,
+  };
+  const contactValid = isContactComplete(fullContact);
+
   async function handleSubmit() {
-    if (!isDemographicsComplete(demographics) || !isContactComplete(contact) || !consentsValid) {
+    if (!isDemographicsComplete(demographics) || !contactValid || !consentsValid) {
       return;
     }
     setSubmitting(true);
@@ -159,7 +169,7 @@ export function TestWizard({
         body: JSON.stringify({
           audience,
           demographics,
-          contact: { ...contact, phone: `+373${phoneLocalPart}` },
+          contact: fullContact,
           consents,
           answers,
         }),
@@ -306,7 +316,7 @@ export function TestWizard({
               Înapoi
             </Button>
             <Button
-              disabled={!isContactComplete(contact) || !consentsValid || submitting}
+              disabled={!contactValid || !consentsValid || submitting}
               onClick={handleSubmit}
             >
               {submitting ? "Se trimite..." : "Trimite testul"}
@@ -315,8 +325,8 @@ export function TestWizard({
         </div>
       )}
 
-      {phase === "done" && isContactComplete(contact) && (
-        <ConfirmationScreen firstName={contact.firstName} email={contact.email} />
+      {phase === "done" && isContactComplete(fullContact) && (
+        <ConfirmationScreen firstName={fullContact.firstName} email={fullContact.email} />
       )}
 
       {phase === "waitlist" && <WaitlistForm audience={audience} />}
