@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { prisma } from "@/lib/db";
+import { DeleteSubmissionButton } from "@/components/admin/DeleteSubmissionButton";
 import { formatAnswers } from "@/lib/questions/format";
 import { YOUTH_CATEGORIES } from "@/lib/questions/youth";
 import { PARENT_CATEGORIES } from "@/lib/questions/parent";
@@ -56,12 +57,20 @@ export default async function SubmissionDetailPage({
 
   return (
     <div>
-      <Link
-        href="/admin/submissions"
-        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-500 hover:text-slate-900"
-      >
-        <ArrowLeft className="h-4 w-4" /> Înapoi la submisii
-      </Link>
+      <div className="flex items-center justify-between">
+        <Link
+          href="/admin/submissions"
+          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-slate-500 hover:text-slate-900"
+        >
+          <ArrowLeft className="h-4 w-4" /> Înapoi la submisii
+        </Link>
+        <DeleteSubmissionButton
+          submissionId={submissionId}
+          name={`${contact.firstName} ${contact.lastName}`}
+          variant="labeled"
+          redirectToList
+        />
+      </div>
 
       <h1 className="mt-4 text-2xl font-bold text-slate-900">
         {contact.firstName} {contact.lastName}

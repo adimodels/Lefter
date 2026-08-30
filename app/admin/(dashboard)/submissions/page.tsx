@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import type { ReportStatus } from "@prisma/client";
 import { updateReportStatusAction } from "../actions";
+import { DeleteSubmissionButton } from "@/components/admin/DeleteSubmissionButton";
 
 export const dynamic = "force-dynamic";
 
@@ -70,6 +71,7 @@ export default async function AdminSubmissionsPage({
               <th className="px-4 py-3 font-medium">Audiență</th>
               <th className="px-4 py-3 font-medium">Contact</th>
               <th className="px-4 py-3 font-medium">Status</th>
+              <th className="px-4 py-3 font-medium" />
             </tr>
           </thead>
           <tbody>
@@ -115,11 +117,17 @@ export default async function AdminSubmissionsPage({
                     </button>
                   </form>
                 </td>
+                <td className="px-4 py-3 whitespace-nowrap">
+                  <DeleteSubmissionButton
+                    submissionId={contact.submissionId}
+                    name={`${contact.firstName} ${contact.lastName}`}
+                  />
+                </td>
               </tr>
             ))}
             {contacts.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-10 text-center text-slate-400">
+                <td colSpan={6} className="px-4 py-10 text-center text-slate-400">
                   Nicio submisie găsită.
                 </td>
               </tr>
