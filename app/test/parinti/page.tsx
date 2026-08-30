@@ -15,6 +15,11 @@ export default function TestParintiPage() {
       categories={PARENT_CATEGORIES}
       instructions={PARENT_TEST_INSTRUCTIONS}
       duration={PARENT_TEST_DURATION}
+      image="/parinti-asset.png"
+      imageAlt="Mamă îmbrățișându-și copilul"
+      imageWidth={1180}
+      imageHeight={1333}
+      imagePanel="from-violet to-violet-soft"
     />
   );
 }

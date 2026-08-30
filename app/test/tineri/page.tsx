@@ -15,6 +15,11 @@ export default function TestTineriPage() {
       categories={YOUTH_CATEGORIES}
       instructions={YOUTH_TEST_INSTRUCTIONS}
       duration={YOUTH_TEST_DURATION}
+      image="/tineri-asset.png"
+      imageAlt="Tânăr cu rucsac și laptop"
+      imageWidth={1165}
+      imageHeight={1350}
+      imagePanel="from-brand to-violet"
     />
   );
 }

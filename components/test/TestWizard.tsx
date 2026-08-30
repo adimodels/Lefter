@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import type { Audience } from "@prisma/client";
 import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
@@ -62,12 +63,23 @@ export function TestWizard({
   categories,
   instructions,
   duration,
+  image,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  imagePanel,
 }: {
   audience: Audience;
   title: string;
   categories: Category[];
   instructions: string;
   duration: string;
+  image: string;
+  imageAlt: string;
+  imageWidth: number;
+  imageHeight: number;
+  /** Clase de gradient pentru discul din spatele decupajului. */
+  imagePanel: string;
 }) {
   const flat = useMemo(() => flattenCategories(categories), [categories]);
 
@@ -182,6 +194,19 @@ export function TestWizard({
     <div className="mx-auto max-w-2xl px-4 py-12 sm:py-16">
       {phase === "intro" && (
         <div className="text-center">
+          <div
+            className={`mx-auto mb-8 flex h-40 w-40 items-end justify-center overflow-hidden rounded-full bg-gradient-to-br ${imagePanel}`}
+          >
+            <Image
+              src={image}
+              alt={imageAlt}
+              width={imageWidth}
+              height={imageHeight}
+              priority
+              sizes="160px"
+              className="h-[92%] w-auto object-contain object-bottom"
+            />
+          </div>
           <h1 className="text-3xl font-bold text-slate-900">{title}</h1>
           <p className="mt-2 text-sm font-medium text-brand">Durată estimată: {duration}</p>
           <p className="mt-6 text-slate-600 leading-relaxed max-w-xl mx-auto">{instructions}</p>
