@@ -46,6 +46,12 @@ export function ReportContents() {
         <h2 className="text-center text-2xl font-bold text-ink sm:text-[1.7rem]">
           Ce conține raportul
         </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-[13.5px] leading-relaxed text-slate-600">
+          Primești gratuit raportul tău complet: profilul psihologic, direcțiile de carieră
+          potrivite ție, forțele tale de caracter și un plan de dezvoltare cu pași concreți —
+          bazat pe 11 instrumente validate internațional. Și contribui la prima statistică
+          națională despre tinerii și părinții din Moldova.
+        </p>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {CARDS.map((card) => (

@@ -17,10 +17,11 @@ const CARDS = [
     assetWidth: 1165,
     assetHeight: 1350,
     points: [
-      "39 de întrebări",
-      "8 categorii de dezvoltare",
-      "Durată: ~15 minute",
-      "Raport personalizat în 24h",
+      "Profilul tău psihologic complet",
+      "3–5 direcții de carieră potrivite profilului tău",
+      "Forțele tale dominante de caracter",
+      "Recomandări de cărți, obiceiuri și cursuri",
+      "Livrat în 24h — 100% gratuit",
     ],
   },
   {
@@ -37,10 +38,11 @@ const CARDS = [
     assetWidth: 1180,
     assetHeight: 1333,
     points: [
-      "32 de întrebări + profil copil",
-      "6 categorii de dezvoltare",
-      "Durată: ~15 minute",
-      "Raport personalizat în 24h",
+      "Stilul tău de parenting și punctele forte",
+      "Cât de bine îți cunoști copilul cu adevărat",
+      "Cum gestionezi emoțiile în familie",
+      "Recomandări personalizate pentru relația cu copilul",
+      "Livrat în 24h — 100% gratuit",
     ],
   },
 ];
