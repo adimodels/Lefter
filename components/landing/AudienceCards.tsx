@@ -12,10 +12,8 @@ const CARDS = [
     accent: "bg-brand",
     panel: "from-brand to-violet",
     button: "bg-brand hover:bg-brand-dark",
-    asset: "/tineri-asset.png",
-    assetAlt: "Tânăr cu rucsac și laptop",
-    assetWidth: 1165,
-    assetHeight: 1350,
+    asset: "/tineri-asset.jpg",
+    assetAlt: "Tânăr zâmbind, portret",
     points: [
       "Profilul tău psihologic complet",
       "3–5 direcții de carieră potrivite profilului tău",
@@ -33,10 +31,8 @@ const CARDS = [
     accent: "bg-violet",
     panel: "from-violet to-violet-soft",
     button: "bg-violet hover:bg-violet/90",
-    asset: "/parinti-asset.png",
-    assetAlt: "Mamă îmbrățișându-și copilul",
-    assetWidth: 1180,
-    assetHeight: 1333,
+    asset: "/parinti-asset.jpg",
+    assetAlt: "Mamă și fiul ei, zâmbind",
     points: [
       "Stilul tău de parenting și punctele forte",
       "Cât de bine îți cunoști copilul cu adevărat",
@@ -61,13 +57,14 @@ export function AudienceCards() {
               className={`absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden bg-gradient-to-br ${card.panel} sm:block`}
               style={{ borderRadius: "45% 0 0 45% / 50% 0 0 50%" }}
             >
+              {/* Poze reale (Pexels), nu cutout-uri — umplu tot panoul, nu mai
+                  stau ancorate jos peste un fundal gradient vizibil. */}
               <Image
                 src={card.asset}
                 alt={card.assetAlt}
-                width={card.assetWidth}
-                height={card.assetHeight}
+                fill
                 sizes="(max-width: 1024px) 30vw, 20vw"
-                className="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
+                className="object-cover object-top"
               />
             </div>
 

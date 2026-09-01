@@ -49,7 +49,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-4">
           <div>
-            <Logo />
+            <Logo showWordmark={false} className="h-14" />
             <p className="mt-5 max-w-xs text-[12px] leading-relaxed text-slate-400">
               Mai mult decât o școală — un mediu în care tinerii din Moldova descoperă cine sunt și
               ce pot face.
